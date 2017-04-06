@@ -9,43 +9,59 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
-} from 'react-native';
+  View,
+  TouchableHighlight,
+  Image,
+} from 'react-native'
 
 class Project extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
+        <View style={styles.topHalf}>
+        </View>
+        <View style={styles.bottomHalf}>
+          <TouchableHighlight
+            style={styles.keyContainer}
+            onPress={() => {}}
+            activeOpacity={75 / 100}
+            underlayColor={"rgb(210,210,210)"}>
+            <Image 
+              style={styles.key}
+              resizeMode={"contain"}
+              source={require('./blackbox.jpeg')}
+            />
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  topHalf: {
+    flex: 1,
+  },
+  
+  bottomHalf: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  
+  keyContainer: {
+    borderRadius: 50,
+  },
+  
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  key: {
+    width: 100,
+    height:  100,
+    borderRadius: 50,
   },
 });
 
