@@ -1,0 +1,16 @@
+{
+  "name": "Project",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-native": "^0.35.0"
+  },
+  "devDependencies": {
+    "jest": "^19.0.2"
+  }
+}
