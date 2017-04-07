@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "react": "^16.0.0-alpha.6",
-    "react-native": "^0.43.2"
+    "react-native": "^0.43.2",
+    "react-native-simple-sound": "^1.0.0",
+    "react-native-sound": "git+https://github.com/zmxv/react-native-sound.git",
+    "react-touch-events": "^2.0.0"
   },
   "devDependencies": {
     "jest": "^19.0.2"

@@ -8,11 +8,41 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  Text,
   View,
-  TouchableHighlight,
-  Image,
-} from 'react-native'
+  TouchableOpacity,
+} from 'react-native';
+import ReactTouchEvents from "react-touch-events";
+
+class Key extends Component {
+  constructor(props) {
+    super(props);
+    
+  }
+  handleTouchStart() {
+    
+  }
+  
+  handleTouchEnd() {
+    
+  }
+  
+  render() {
+    return (
+      <ReactTouchEvents
+        onTouchStart={this.handleTouchStart}
+        onTouchEnd={this.handleTouchEnd}>
+        <TouchableOpacity
+          style={styles.keyContainer}
+          onPress={() => {}}
+          activeOpacity={ 75  / 100}>
+          <View style={styles.key}/>
+        </TouchableOpacity> 
+      </ReactTouchEvents>
+    );
+  }
+}
+
+
 
 class Project extends Component {
   render() {
@@ -21,17 +51,7 @@ class Project extends Component {
         <View style={styles.topHalf}>
         </View>
         <View style={styles.bottomHalf}>
-          <TouchableHighlight
-            style={styles.keyContainer}
-            onPress={() => {}}
-            activeOpacity={75 / 100}
-            underlayColor={"rgb(210,210,210)"}>
-            <Image 
-              style={styles.key}
-              resizeMode={"contain"}
-              source={require('./blackbox.jpeg')}
-            />
-          </TouchableHighlight>
+          <Key />
         </View>
       </View>
     );
@@ -49,8 +69,10 @@ const styles = StyleSheet.create({
   },
   
   keyContainer: {
+    width: 100,
+    height: 100,
     borderRadius: 50,
-  },
+  }, 
   
   container: {
     flex: 1,
@@ -61,7 +83,8 @@ const styles = StyleSheet.create({
   key: {
     width: 100,
     height:  100,
-    borderRadius: 50,
+    borderRadius: 100/2,
+    backgroundColor: 'black',
   },
 });
 
