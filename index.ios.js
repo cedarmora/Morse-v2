@@ -9,40 +9,52 @@ import {
   AppRegistry,
   StyleSheet,
   View,
-  TouchableOpacity,
-} from 'react-native';
-import ReactTouchEvents from "react-touch-events";
+  Text,
+} from 'react-native'
+const Sound = require('react-native-sound');
 
 class Key extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      width: 100,
+      height:  100,
+      borderRadius: 100/2,
+    };
+  }
+
+  onResponderGrant = () => {
+    console.log('onResponderGrant');
+    this.setState({
+      width: 90,
+      height: 90,
+      borderRadius: 90 / 2,
+    });
     
   }
-  handleTouchStart() {
-    
-  }
-  
-  handleTouchEnd() {
-    
+  onResponderRelease = () => {
+    console.log('onResponderRelease');
+    this.setState({
+      width: 100,
+      height: 100,
+      borderRadius: 100 / 2,
+    });
   }
   
   render() {
     return (
-      <ReactTouchEvents
-        onTouchStart={this.handleTouchStart}
-        onTouchEnd={this.handleTouchEnd}>
-        <TouchableOpacity
-          style={styles.keyContainer}
-          onPress={() => {}}
-          activeOpacity={ 75  / 100}>
-          <View style={styles.key}/>
-        </TouchableOpacity> 
-      </ReactTouchEvents>
+       <View 
+         style={styles.key}
+         width={this.state.width}
+         height={this.state.height}
+         borderRadius={this.state.borderRadius}
+         onStartShouldSetResponder={() => true}
+         onResponderGrant={this.onResponderGrant}
+         onResponderRelease={this.onResponderRelease}
+         />
     );
   }
 }
-
-
 
 class Project extends Component {
   render() {
@@ -81,9 +93,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   key: {
-    width: 100,
-    height:  100,
-    borderRadius: 100/2,
     backgroundColor: 'black',
   },
 });

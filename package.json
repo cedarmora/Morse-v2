@@ -3,17 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start",
-    "test": "jest"
+    "start": "react-native start"
   },
   "dependencies": {
     "react": "^16.0.0-alpha.6",
     "react-native": "^0.43.2",
-    "react-native-simple-sound": "^1.0.0",
-    "react-native-sound": "git+https://github.com/zmxv/react-native-sound.git",
-    "react-touch-events": "^2.0.0"
+    "react-native-sound": "git+https://github.com/zmxv/react-native-sound.git"
   },
-  "devDependencies": {
-    "jest": "^19.0.2"
-  }
+  "devDependencies": {}
 }
