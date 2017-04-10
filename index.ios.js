@@ -33,21 +33,20 @@ class Key extends Component {
   }
 
   onResponderGrant = () => {
+    this.sound.play(() => this.sound.release());
     this.setState({
       width: 90,
       height: 90,
       borderRadius: 90 / 2,
     });
-    this.sound.play(() => this.sound.release());
   }
   onResponderRelease = () => {
+    this.sound.stop();
     this.setState({
       width: 100,
       height: 100,
       borderRadius: 100 / 2,
     });
-    
-    this.sound.stop();
   }
   
   render() {

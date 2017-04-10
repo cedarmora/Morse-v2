@@ -9,40 +9,60 @@ import {
   AppRegistry,
   StyleSheet,
   View,
-  TouchableOpacity,
-} from 'react-native';
-import ReactTouchEvents from "react-touch-events";
+  Text,
+} from 'react-native'
+const Sound = require('react-native-sound');
+Sound.setCategory('Playback');
 
 class Key extends Component {
   constructor(props) {
     super(props);
-    
+    this.state = {
+      width: 100,
+      height:  100,
+      borderRadius: 100/2,
+    };
+    this.sound = new Sound('beep.wav', Sound.MAIN_BUNDLE, (e) => {
+      if (e) {
+        console.log('error', e)
+      }
+      else {
+        this.sound.setSpeed(1);
+      }
+    });
   }
-  handleTouchStart() {
-    
+
+  onResponderGrant = () => {
+    this.sound.play(() => this.sound.release());
+    this.setState({
+      width: 90,
+      height: 90,
+      borderRadius: 90 / 2,
+    });
   }
-  
-  handleTouchEnd() {
-    
+  onResponderRelease = () => {
+    this.sound.stop();
+    this.setState({
+      width: 100,
+      height: 100,
+      borderRadius: 100 / 2,
+    });
   }
   
   render() {
     return (
-      <ReactTouchEvents
-        onTouchStart={this.handleTouchStart}
-        onTouchEnd={this.handleTouchEnd}>
-        <TouchableOpacity
-          style={styles.keyContainer}
-          onPress={() => {}}
-          activeOpacity={ 75  / 100}>
-          <View style={styles.key}/>
-        </TouchableOpacity> 
-      </ReactTouchEvents>
+       <View 
+         style={styles.key}
+         width={this.state.width}
+         height={this.state.height}
+         borderRadius={this.state.borderRadius}
+         onStartShouldSetResponder={() => true}
+         onResponderGrant={this.onResponderGrant}
+         onResponderRelease={this.onResponderRelease}
+         />
     );
   }
 }
-
-
 
 class Project extends Component {
   render() {
@@ -65,7 +85,8 @@ const styles = StyleSheet.create({
   
   bottomHalf: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   
   keyContainer: {
@@ -76,14 +97,9 @@ const styles = StyleSheet.create({
   
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   key: {
-    width: 100,
-    height:  100,
-    borderRadius: 100/2,
     backgroundColor: 'black',
   },
 });
