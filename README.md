@@ -1,6 +1,6 @@
 # Morse-v2
 
-A Morse code practice button, made using React Native. Ever wanted to practice your Morse code for more efficient communication with that Civil War Prototype Submarine recreation you have? Well, now you can.
+A Morse code practice button, made using React Native. Ever wanted to practice your Morse code for more efficient communication with that Civil War Prototype Submarine re-creation you have? Well, now you can.
 
 ## But how do I get it running on my computer/phone? 
 
