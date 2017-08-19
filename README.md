@@ -2,7 +2,11 @@
 
 A Morse code practice button, made using React Native. Ever wanted to practice your Morse code for more efficient communication with that Civil War Prototype Submarine re-creation you have? Well, now you can.
 
-## But how do I get it running on my computer/phone? 
+## Where is the main code?
+
+In index.ios.js for the iOS implementation, and index.android.js for the Android implementation. At the moment they are identical.
+
+## How do I get it running on my computer/phone? 
 
 I am going to assume that you understand the prerequisites, like Node Package Manager, the JDK, Android Studio or Xcode, simulators, etc.  
 
